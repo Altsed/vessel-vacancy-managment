@@ -1,0 +1,16 @@
+main\java\com\altsed\spring\entity\utils\DeleteVessel.class
+main\java\com\altsed\spring\service\VesselVacancyService.class
+main\java\com\altsed\spring\dao\VesselVacancyDAO.class
+com\altsed\testdb\TestDbPostgreSqlServlet.class
+main\java\com\altsed\spring\entity\Vessel.class
+main\java\com\altsed\spring\entity\Position.class
+main\java\com\altsed\spring\dao\VesselVacancyDAOImpl.class
+main\java\com\altsed\spring\entity\utils\GetVacancy.class
+main\java\com\altsed\spring\controller\VacancyController.class
+main\java\com\altsed\spring\entity\utils\DeletePosition.class
+main\java\com\altsed\spring\entity\utils\DeleteVacancy.class
+main\java\com\altsed\spring\entity\utils\CreateVessel.class
+main\java\com\altsed\spring\entity\Vacancy.class
+main\java\com\altsed\spring\entity\utils\CreateVacancy.class
+main\java\com\altsed\spring\service\VesselVacancyServiceImpl.class
+main\java\com\altsed\testdb\TestDbServlet.class
