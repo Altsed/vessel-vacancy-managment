@@ -42,4 +42,32 @@ public class VesselVacancyDAOImpl implements VesselVacancyDAO {
         List<Vessel> vessels = query.getResultList();
         return vessels;
     }
+
+    @Override
+    public void savePosition(Position thePosition) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(thePosition);
+    }
+
+    @Override
+    public void saveVessel(Vessel theVessel) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(theVessel);
+
+    }
+
+    @Override
+    public void saveVacancy(Vacancy theVacancy) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(theVacancy);
+    }
+
+    @Override
+    public Vessel getVessel(int vesselId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.get(Vessel.class, vesselId);
+
+    }
+
 }

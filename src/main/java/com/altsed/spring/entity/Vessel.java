@@ -1,5 +1,7 @@
 package main.java.com.altsed.spring.entity;
 
+import org.springframework.core.convert.converter.Converter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ public class Vessel {
             cascade = CascadeType.ALL)
 
     private List<Vacancy> vacancies;
+
+
 
     public Vessel() {
     }
@@ -105,4 +109,7 @@ public class Vessel {
                 ", enginePower='" + enginePower + '\'' +
                 '}';
     }
+
 }
+
+

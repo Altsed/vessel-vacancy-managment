@@ -14,6 +14,11 @@ import java.util.List;
 @Service
 public class VesselVacancyServiceImpl implements VesselVacancyService{
 
+    @Override
+    public Vessel getVessel(int vesselId) {
+        return vesselVacancyDAO.getVessel(vesselId);
+    }
+
     @Autowired
     private VesselVacancyDAO vesselVacancyDAO;
 
@@ -34,4 +39,21 @@ public class VesselVacancyServiceImpl implements VesselVacancyService{
     public List<Vessel> getVessels() {
         return vesselVacancyDAO.getVessels();
     }
+
+    @Override
+    public void savePosition(Position thePosition) {
+        vesselVacancyDAO.savePosition(thePosition);
+    }
+
+    @Override
+    public void saveVessel(Vessel theVessel) {
+        vesselVacancyDAO.saveVessel(theVessel);
+    }
+
+    @Override
+    public void saveVacancy(Vacancy theVacancy) {
+        vesselVacancyDAO.saveVacancy(theVacancy);
+    }
+
+
 }

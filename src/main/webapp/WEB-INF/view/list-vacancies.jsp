@@ -38,12 +38,23 @@
                     <th>Vessel</th>
                     <th>Status</th>
                     <th>Position</th>
-                    <th>Duration</th>
+                    <th>Duration, days</th>
                 </tr>
                 <c:forEach var="tempVacancy" items="${vacancies}" >
                     <tr>
                         <td>${tempVacancy.vessel.name}</td>
-                        <td>${tempVacancy.status}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${tempVacancy.status == false}">
+                                    not active
+                                </c:when>
+                                <c:otherwise>
+                                    active
+                                </c:otherwise>
+                            </c:choose>
+
+
+                        </td>
                         <td>${tempVacancy.position.name}</td>
                         <td>${tempVacancy.durationOfContract}</td>
                     </tr>
