@@ -39,8 +39,16 @@
                     <th>Status</th>
                     <th>Position</th>
                     <th>Duration, days</th>
+                    <th>Action</th>
                 </tr>
                 <c:forEach var="tempVacancy" items="${vacancies}" >
+                    <!-- construct update link with customer id -->
+                    <c:url var="updateLink" value="/vacancies/showFormForUpdateVacancy">
+                        <c:param name="vacancyId" value="${tempVacancy.id}" />
+                    </c:url>
+                    <c:url var="deleteLink" value="/vacancies/deleteVacancy">
+                        <c:param name="vacancyId" value="${tempVacancy.id}" />
+                    </c:url>
                     <tr>
                         <td>${tempVacancy.vessel.name}</td>
                         <td>
@@ -57,6 +65,12 @@
                         </td>
                         <td>${tempVacancy.position.name}</td>
                         <td>${tempVacancy.durationOfContract}</td>
+                        <td>
+                            <a href="${updateLink}">Update</a>
+                            |
+                            <a href="${deleteLink}"
+                               onclick="if (!(confirm('Are you sure to delete this Vacancy ?'))) return false">Delete</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

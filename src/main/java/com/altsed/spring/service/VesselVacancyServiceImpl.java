@@ -55,5 +55,28 @@ public class VesselVacancyServiceImpl implements VesselVacancyService{
         vesselVacancyDAO.saveVacancy(theVacancy);
     }
 
+    @Override
+    public Position getPosition(int theId) {
+        return vesselVacancyDAO.getPosition(theId);
+    }
 
+    @Override
+    public Vacancy getVacancy(int theId) {
+        return vesselVacancyDAO.getVacancy(theId);
+    }
+
+    @Override
+    public void deleteVessel(int theId) {
+        vesselVacancyDAO.deleteVessel(theId);
+    }
+
+    @Override
+    public void deletePosition(int theId) {
+        vesselVacancyDAO.deletePosition(theId);
+    }
+
+    @Override
+    public void deleteVacancy(int theId) {
+        vesselVacancyDAO.deleteVacancy(theId);
+    }
 }

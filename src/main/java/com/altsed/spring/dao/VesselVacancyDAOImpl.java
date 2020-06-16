@@ -46,20 +46,20 @@ public class VesselVacancyDAOImpl implements VesselVacancyDAO {
     @Override
     public void savePosition(Position thePosition) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.save(thePosition);
+        currentSession.saveOrUpdate(thePosition);
     }
 
     @Override
     public void saveVessel(Vessel theVessel) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.save(theVessel);
+        currentSession.saveOrUpdate(theVessel);
 
     }
 
     @Override
     public void saveVacancy(Vacancy theVacancy) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.save(theVacancy);
+        currentSession.saveOrUpdate(theVacancy);
     }
 
     @Override
@@ -70,4 +70,36 @@ public class VesselVacancyDAOImpl implements VesselVacancyDAO {
 
     }
 
+    @Override
+    public Position getPosition(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.get(Position.class, theId);
+    }
+
+    @Override
+    public Vacancy getVacancy(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.get(Vacancy.class, theId);
+    }
+
+    @Override
+    public void deleteVessel(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Vessel theVessel = currentSession.get(Vessel.class, theId);
+        currentSession.delete(theVessel);
+    }
+
+    @Override
+    public void deletePosition(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Position thePosition = currentSession.get(Position.class, theId);
+        currentSession.delete(thePosition);
+    }
+
+    @Override
+    public void deleteVacancy(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Vacancy theVacancy = currentSession.get(Vacancy.class, theId);
+        currentSession.delete(theVacancy);
+    }
 }

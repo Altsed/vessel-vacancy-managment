@@ -18,4 +18,12 @@ public interface VesselVacancyService {
     void saveVacancy(Vacancy theVacancy);
 
     Vessel getVessel(int vesselId);
+
+    Position getPosition(int theId);
+
+    Vacancy getVacancy(int theId);
+
+    void deleteVessel(int theId);
+    void deletePosition(int theId);
+    void deleteVacancy(int theId);
 }

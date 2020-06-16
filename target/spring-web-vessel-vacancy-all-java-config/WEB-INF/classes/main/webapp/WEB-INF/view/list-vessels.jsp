@@ -34,13 +34,30 @@
                     <th>Type</th>
                     <th>Engine type</th>
                     <th>Engine power</th>
+                    <th>Action</th>
                 </tr>
+
+
                 <c:forEach var="tempVessel" items="${vessels}" >
+                    <!-- construct update link with customer id -->
+                    <c:url var="updateLink" value="/vacancies/showFormForUpdateVessel">
+                        <c:param name="vesselId" value="${tempVessel.id}" />
+                    </c:url>
+                    <c:url var="deleteLink" value="/vacancies/deleteVessel">
+                        <c:param name="vesselId" value="${tempVessel.id}" />
+                    </c:url>
                     <tr>
                         <td>${tempVessel.name}</td>
                         <td>${tempVessel.vesselType}</td>
                         <td>${tempVessel.engineType}</td>
                         <td>${tempVessel.enginePower}</td>
+                        <td>
+                            <a href="${updateLink}">Update</a>
+                            |
+                            <a href="${deleteLink}"
+                            onclick="if (!(confirm('Are you sure to delete this Vessel ? ' +
+                             'All vacancies with this Vessel will be deleted too!'))) return false">Delete</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

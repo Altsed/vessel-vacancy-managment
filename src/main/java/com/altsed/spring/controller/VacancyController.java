@@ -86,7 +86,7 @@ public class VacancyController {
         Vacancy theVacancy = new Vacancy();
 
         theModel.addAttribute("vacancy", theVacancy);
-   //     theModel.addAttribute("vessels", vesselVacancyService.getVessel("Vessel{id=6, name='Explorer', vesselType='Boat', engineType='wind', enginePower='12HP'}"));
+
         theModel.addAttribute("vessels", vesselVacancyService.getVessels());
 
         theModel.addAttribute("positions", vesselVacancyService.getPositions());
@@ -102,6 +102,46 @@ public class VacancyController {
 
     }
 
+    @GetMapping("/showFormForUpdateVessel")
+    public String showFormForUpdateVessel(@RequestParam ("vesselId") int theId, Model theModel){
+        Vessel theVessel = vesselVacancyService.getVessel(theId);
+        theModel.addAttribute("vessel", theVessel);
+        return "update-vessel";
+    }
+
+    @GetMapping("/showFormForUpdatePosition")
+    public String showFormForUpdatePosition(@RequestParam ("positionId") int theId, Model theModel){
+        Position thePosition = vesselVacancyService.getPosition(theId);
+        theModel.addAttribute("position", thePosition);
+        return "update-position";
+    }
+
+    @GetMapping("/showFormForUpdateVacancy")
+    public String showFormForUpdateVacancy(@RequestParam("vacancyId") int theId, Model theModel){
+        Vacancy theVacancy = vesselVacancyService.getVacancy(theId);
+        theModel.addAttribute("vacancy", theVacancy);
+        theModel.addAttribute("vessels", vesselVacancyService.getVessels());
+        theModel.addAttribute("positions", vesselVacancyService.getPositions());
+
+        return "update-vacancy";
+    }
+
+    @GetMapping("/deleteVessel")
+    public String deleteVessel(@RequestParam("vesselId") int theId, Model theModel){
+        vesselVacancyService.deleteVessel(theId);
+        return "redirect:/vacancies/vessels";
+    }
+
+    @GetMapping("/deletePosition")
+    public String deletePosition(@RequestParam("positionId") int theId, Model theModel){
+        vesselVacancyService.deletePosition(theId);
+        return "redirect:/vacancies/positions";
+    }
+    @GetMapping("/deleteVacancy")
+    public String deleteVacancy(@RequestParam("vacancyId") int theId, Model theModel){
+        vesselVacancyService.deleteVacancy(theId);
+        return "redirect:/vacancies/list";
+    }
 
 
 

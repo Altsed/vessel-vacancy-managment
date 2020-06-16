@@ -33,10 +33,26 @@
             <table>
                 <tr>
                     <th>Name</th>
+                    <th>Action</th>
                 </tr>
                 <c:forEach var="tempPosition" items="${positions}" >
+                    <!-- construct update link with customer id -->
+                    <c:url var="updateLink" value="/vacancies/showFormForUpdatePosition">
+                        <c:param name="positionId" value="${tempPosition.id}" />
+                    </c:url>
+                    <c:url var="deleteLink" value="/vacancies/deletePosition">
+                        <c:param name="positionId" value="${tempPosition.id}" />
+                    </c:url>
+
                     <tr>
                         <td>${tempPosition.name}</td>
+                        <td>
+                            <a href="${updateLink}">Update</a>
+                            |
+                            <a href="${deleteLink}"
+                               onclick="if (!(confirm('Are you sure to delete this Position ?' +
+                               'All vacancies with this Position will be deleted too!'))) return false">Delete</a>
+                        </td>
 
                     </tr>
                 </c:forEach>
