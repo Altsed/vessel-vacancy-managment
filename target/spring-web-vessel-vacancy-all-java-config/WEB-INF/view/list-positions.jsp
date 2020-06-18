@@ -50,8 +50,8 @@
                             <a href="${updateLink}">Update</a>
                             |
                             <a href="${deleteLink}"
-                               onclick="if (!(confirm('Are you sure to delete this Position ?' +
-                               'All vacancies with this Position will be deleted too!'))) return false">Delete</a>
+                               onclick="if (!(confirm('Are you sure to delete this Position?' +
+                               '  All vacancies with this Position will be deleted too!'))) return false">Delete</a>
                         </td>
 
                     </tr>

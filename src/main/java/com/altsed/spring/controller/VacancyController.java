@@ -30,6 +30,7 @@ public class VacancyController {
 
     @GetMapping("/list")
     public String listVacancies (Model theModel){
+
         List<Vacancy> vacancies = vesselVacancyService.getVacancies();
         theModel.addAttribute("vacancies", vacancies);
 

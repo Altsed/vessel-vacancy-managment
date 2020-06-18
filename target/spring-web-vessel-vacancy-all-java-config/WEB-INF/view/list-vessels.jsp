@@ -55,8 +55,8 @@
                             <a href="${updateLink}">Update</a>
                             |
                             <a href="${deleteLink}"
-                            onclick="if (!(confirm('Are you sure to delete this Vessel ? ' +
-                             'All vacancies with this Vessel will be deleted too!'))) return false">Delete</a>
+                            onclick="if (!(confirm('Are you sure to delete this Vessel? ' +
+                             '  All vacancies with this Vessel will be deleted too!'))) return false">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
